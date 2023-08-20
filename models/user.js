@@ -8,10 +8,6 @@ const emailRegexp =
 
 const userSchema = new Schema(
   {
-    // name: {
-    //   type: String,
-    //   required: true,
-    // },
     password: {
       type: String,
       required: [true, "Password is required"],
@@ -31,8 +27,9 @@ const userSchema = new Schema(
       type: String,
       default: null,
     },
+    avatarURL: String,
   },
-  { versionKey: false, timestamp: true }
+  { versionKey: false, timestamps: true }
 );
 
 userSchema.post("save", handleMongooseError);
